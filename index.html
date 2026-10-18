@@ -708,7 +708,7 @@
       font-weight: 500;
     }
 
-    /* ---------- NOTIFICATION TOASTS (TOP POSITION) ---------- */
+    /* ---------- NOTIFICATION TOASTS (SMALLER + ONE AT A TIME) ---------- */
     .notif-container {
       position: fixed;
       top: 80px;
@@ -718,7 +718,7 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      max-width: 400px;
+      max-width: 300px;
       width: calc(100% - 40px);
       pointer-events: none;
       align-items: center;
@@ -726,43 +726,43 @@
 
     .notif-toast {
       background: #ffffff;
-      border-radius: 60px;
-      padding: 12px 18px 12px 14px;
-      box-shadow: 0 15px 40px rgba(0, 30, 15, 0.18), 0 4px 12px rgba(0, 40, 20, 0.08);
+      border-radius: 50px;
+      padding: 8px 14px 8px 10px;
+      box-shadow: 0 10px 25px rgba(0, 30, 15, 0.15), 0 3px 8px rgba(0, 40, 20, 0.06);
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 9px;
       border: 1px solid #d4af37;
-      border-left: 6px solid #0d6b3e;
+      border-left: 4px solid #0d6b3e;
       pointer-events: auto;
       animation: slideDown 0.4s cubic-bezier(0.22, 1, 0.36, 1);
       backdrop-filter: blur(4px);
-      background: rgba(255, 255, 255, 0.96);
+      background: rgba(255, 255, 255, 0.97);
       width: 100%;
     }
 
     @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-30px) scale(0.95); }
+      from { opacity: 0; transform: translateY(-20px) scale(0.95); }
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
     @keyframes slideUp {
       from { opacity: 1; transform: translateY(0) scale(1); }
-      to { opacity: 0; transform: translateY(-30px) scale(0.95); }
+      to { opacity: 0; transform: translateY(-20px) scale(0.95); }
     }
 
     .notif-toast.fade-out {
-      animation: slideUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation: slideUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
 
     .notif-icon {
-      width: 40px;
-      height: 40px;
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.3rem;
+      font-size: 0.95rem;
       flex-shrink: 0;
       background: #e6f7ef;
       border: 1px solid #b8e6d0;
@@ -773,24 +773,27 @@
     .notif-content .name {
       font-weight: 700;
       color: #0a2e1f;
-      font-size: 0.95rem;
+      font-size: 0.78rem;
+      line-height: 1.2;
     }
 
     .notif-content .action {
-      font-size: 0.82rem;
+      font-size: 0.68rem;
       color: #1e3a2f;
+      line-height: 1.2;
+      margin-top: 1px;
     }
 
     .notif-content .time {
-      font-size: 0.7rem;
+      font-size: 0.6rem;
       color: #8faa9b;
-      margin-top: 2px;
+      margin-top: 1px;
     }
 
     .notif-check {
       color: #0d6b3e;
       font-weight: 700;
-      font-size: 1.2rem;
+      font-size: 0.95rem;
       flex-shrink: 0;
     }
 
@@ -1231,11 +1234,11 @@
 
       .notif-container {
         top: 70px;
-        max-width: 320px;
+        max-width: 270px;
       }
 
       .notif-toast {
-        padding: 10px 14px 10px 12px;
+        padding: 7px 12px 7px 9px;
       }
 
       .countdown-bar {
@@ -1389,7 +1392,7 @@
   <!-- ================= NOTIFICATION CONTAINER (TOP POSITION) ================= -->
   <div class="notif-container" id="notifContainer"></div>
 
-  <!-- ================= 1-MINUTE DISCOUNT MODAL ================= -->
+  <!-- ================= 4-MINUTE DISCOUNT MODAL ================= -->
   <div class="modal-overlay" id="discountModal" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.55);backdrop-filter:blur(6px);z-index:10000;display:none;align-items:center;justify-content:center;padding:20px;">
     <div style="background:#ffffff;border-radius:28px;max-width:480px;width:100%;padding:40px 32px 32px;text-align:center;box-shadow:0 40px 80px rgba(0,0,0,0.3);animation:popIn 0.4s cubic-bezier(0.22,1,0.36,1);position:relative;border:2px solid #d4af37;">
       <button style="position:absolute;top:16px;right:20px;background:none;border:none;font-size:1.6rem;color:#8faa9b;cursor:pointer;" onclick="closeDiscountModal()">&times;</button>
@@ -1878,7 +1881,7 @@
         playVideo();
       });
 
-      // ---------- PURCHASE NOTIFICATIONS (TOP POSITION) ----------
+      // ---------- PURCHASE NOTIFICATIONS (ONE AT A TIME, SMALLER) ----------
       const buyers = [
         { name: "Chinedu O.", location: "Lagos" },
         { name: "Aisha B.", location: "Abuja" },
@@ -1920,8 +1923,7 @@
 
       const container = document.getElementById('notifContainer');
       let index = 0;
-      let activeToasts = 0;
-      const MAX_TOASTS = 3;
+      let notificationRunning = false;
 
       function createToast(buyer, action, time) {
         const toast = document.createElement('div');
@@ -1938,17 +1940,11 @@
         return toast;
       }
 
-      function showNotification() {
-        if (activeToasts >= MAX_TOASTS) {
-          const oldest = container.firstChild;
-          if (oldest) {
-            oldest.classList.add('fade-out');
-            setTimeout(() => {
-              if (oldest.parentNode) oldest.remove();
-              activeToasts--;
-            }, 400);
-          }
-        }
+      // Show ONE notification at a time.
+      // It displays for 4s, then fades out (0.35s), and only THEN does the next one appear.
+      function showOneNotification() {
+        if (notificationRunning) return;
+        notificationRunning = true;
 
         const buyer = buyers[index % buyers.length];
         const action = actions[Math.floor(Math.random() * actions.length)];
@@ -1956,40 +1952,36 @@
 
         const toast = createToast(buyer, action, time);
         container.appendChild(toast);
-        activeToasts++;
-
-        setTimeout(() => {
-          if (toast.parentNode) {
-            toast.classList.add('fade-out');
-            setTimeout(() => {
-              if (toast.parentNode) {
-                toast.remove();
-                activeToasts--;
-              }
-            }, 400);
-          }
-        }, 6000);
-
         index++;
+
+        // Display duration
+        setTimeout(() => {
+          toast.classList.add('fade-out');
+          // Wait for fade-out animation to finish before scheduling next
+          setTimeout(() => {
+            if (toast.parentNode) toast.remove();
+            notificationRunning = false;
+            // Schedule the next notification after a short gap
+            const gap = 2500 + Math.random() * 2000; // 2.5s – 4.5s gap between notifications
+            setTimeout(showOneNotification, gap);
+          }, 380); // slightly longer than the 0.35s animation
+        }, 4000);
       }
 
-      setTimeout(() => {
-        showNotification();
-        setInterval(() => {
-          showNotification();
-        }, 3500 + Math.random() * 3500);
-      }, 2000);
+      // Start the first notification after 2 seconds
+      setTimeout(showOneNotification, 2000);
 
-      // ---------- 1-MINUTE DISCOUNT MODAL ----------
+      // ---------- 4-MINUTE DISCOUNT MODAL ----------
       const discountModal = document.getElementById('discountModal');
       let discountModalShown = false;
 
+      // Show after 4 minutes = 240000 ms
       setTimeout(() => {
         if (!sessionStorage.getItem('promisetechDiscountDismissed') && !discountModalShown) {
           discountModal.style.display = 'flex';
           discountModalShown = true;
         }
-      }, 60000);
+      }, 240000);
 
       window.closeDiscountModal = function() {
         discountModal.style.display = 'none';
