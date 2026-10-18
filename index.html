@@ -1517,37 +1517,39 @@
       Learn to build AI‑powered ebooks, stick different videos into a single answer, and sell your digital products on social media — with the exact prompts we use.
     </p>
 
-    <!-- ================= VIDEO SECTION (PORTRAIT / MOBILE) ================= -->
-    <div class="video-wrapper">
-      <div class="video-note">
-        <i class="fa-solid fa-circle-exclamation"></i>
-        Watch this short video first before scrolling
-      </div>
+   <!-- ================= VIDEO SECTION (PORTRAIT / MOBILE) ================= -->
+<div class="video-wrapper">
+  <div class="video-note">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    Watch this short video first before scrolling
+  </div>
 
-      <div class="video-container" id="videoContainer">
-        <!-- REPLACE THE SRC BELOW WITH YOUR PORTRAIT VIDEO LINK -->
-        <video
-          id="promoVideo"
-          preload="metadata"
-          playsinline
-          webkit-playsinline
-          poster=""
-        >
-          <!-- 👇 PUT YOUR PORTRAIT VIDEO LINK HERE (9:16 recommended) 👇 -->
-          <source src="https://drive.google.com/file/d/1viZYUN1-i7ufFdA6-NkwOSGcSKXLhH9D/view?usp=sharing" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+  <div class="video-container" id="videoContainer">
+    <!-- Google Drive direct stream link -->
+    <video
+      id="promoVideo"
+      preload="metadata"
+      playsinline
+      webkit-playsinline
+      crossorigin="anonymous"
+      poster=""
+    >
+      <!-- 👇 Google Drive direct link (file ID: 1viZYUN1-i7ufFdA6-NkwOSGcSKXLhH9D) 👇 -->
+      <source src="https://drive.google.com/uc?export=download&id=1viZYUN1-i7ufFdA6-NkwOSGcSKXLhH9D" type="video/mp4">
+      <source src="https://drive.google.com/uc?export=download&id=1viZYUN1-i7ufFdA6-NkwOSGcSKXLhH9D&confirm=t" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
 
-        <!-- Poster overlay with play button -->
-        <div class="video-poster" id="videoPoster">
-          <div class="play-btn" id="playBtn">
-            <i class="fa-solid fa-play"></i>
-          </div>
-          <div class="poster-text">Tap to watch how it works</div>
-          <div class="poster-sub">Sound ON 🔊</div>
-        </div>
+    <!-- Poster overlay with play button -->
+    <div class="video-poster" id="videoPoster">
+      <div class="play-btn" id="playBtn">
+        <i class="fa-solid fa-play"></i>
       </div>
+      <div class="poster-text">Tap to watch how it works</div>
+      <div class="poster-sub">Sound ON 🔊</div>
     </div>
+  </div>
+</div>
 
     <!-- PRICE + FIRST CTA (OPENS CHECKOUT) -->
     <div class="special-offer-box gold-border">
