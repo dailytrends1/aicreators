@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-  <title>PROMISETECH ACADEMY — AI Digital Product Creation & Selling | ₦2,000</title>
-  <meta name="description" content="Learn to create AI ebooks, stick different videos together that answer questions, and sell your digital products on social media. Join PROMISETECH ACADEMY for ₦2,000.">
+  <title>PROMISETECH ACADEMY — AI Digital Product Creation & Selling | ₦3,000</title>
+  <meta name="description" content="Learn to create AI ebooks, stick different videos together that answer questions, and sell your digital products on social media. Join PROMISETECH ACADEMY for ₦3,000.">
 
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -271,12 +271,24 @@
       aspect-ratio: 9 / 16;
     }
 
-    .video-container video {
+    /* Video mount (iframe gets injected here on play) */
+    #videoMount {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      z-index: 1;
+    }
+
+    #videoMount iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
       display: block;
-      background: #0a2e1f;
     }
 
     /* Poster overlay with play button */
@@ -291,7 +303,7 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      background: linear-gradient(145deg, rgba(10, 46, 31, 0.85), rgba(13, 107, 62, 0.7));
+      background: linear-gradient(145deg, rgba(10, 46, 31, 0.88), rgba(13, 107, 62, 0.75));
       transition: opacity 0.3s ease, visibility 0.3s ease;
       z-index: 2;
       gap: 14px;
@@ -1412,7 +1424,7 @@
           <span class="exit-new-price">₦3,000</span>
         </div>
         <p class="exit-message">
-          You're about to miss out on the <strong>70% discount</strong>.
+          You're about to miss out on the <strong>85% discount</strong>.
           Pay <strong>₦3,000</strong> instead of ₦20,000 today!
         </p>
         <div class="exit-actions">
@@ -1517,39 +1529,27 @@
       Learn to build AI‑powered ebooks, stick different videos into a single answer, and sell your digital products on social media — with the exact prompts we use.
     </p>
 
-   <!-- ================= VIDEO SECTION (PORTRAIT / MOBILE) ================= -->
-<div class="video-wrapper">
-  <div class="video-note">
-    <i class="fa-solid fa-circle-exclamation"></i>
-    Watch this short video first before scrolling
-  </div>
-
-  <div class="video-container" id="videoContainer">
-    <!-- Google Drive direct stream link -->
-    <video
-      id="promoVideo"
-      preload="metadata"
-      playsinline
-      webkit-playsinline
-      crossorigin="anonymous"
-      poster=""
-    >
-      <!-- 👇 Google Drive direct link (file ID: 1viZYUN1-i7ufFdA6-NkwOSGcSKXLhH9D) 👇 -->
-      <source src="https://drive.google.com/uc?export=download&id=1viZYUN1-i7ufFdA6-NkwOSGcSKXLhH9D" type="video/mp4">
-      <source src="https://drive.google.com/uc?export=download&id=1viZYUN1-i7ufFdA6-NkwOSGcSKXLhH9D&confirm=t" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-
-    <!-- Poster overlay with play button -->
-    <div class="video-poster" id="videoPoster">
-      <div class="play-btn" id="playBtn">
-        <i class="fa-solid fa-play"></i>
+    <!-- ================= VIDEO SECTION (YOUTUBE PORTRAIT) ================= -->
+    <div class="video-wrapper">
+      <div class="video-note">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        Watch this short video first before scrolling
       </div>
-      <div class="poster-text">Tap to watch how it works</div>
-      <div class="poster-sub">Sound ON 🔊</div>
+
+      <div class="video-container" id="videoContainer">
+        <!-- YouTube iframe will be INJECTED here on play -->
+        <div id="videoMount"></div>
+
+        <!-- Poster overlay with play button -->
+        <div class="video-poster" id="videoPoster">
+          <div class="play-btn" id="playBtn">
+            <i class="fa-solid fa-play"></i>
+          </div>
+          <div class="poster-text">Tap to watch how it works</div>
+          <div class="poster-sub">Sound ON 🔊</div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
     <!-- PRICE + FIRST CTA (OPENS CHECKOUT) -->
     <div class="special-offer-box gold-border">
@@ -1744,7 +1744,7 @@
       <li><strong>STEP 3: CREATE YOUR PRODUCT</strong> — For ebooks: generate, format, design. For videos: stick different clips together into a clear answer.</li>
       <li><strong>STEP 4: PACKAGE IT</strong> — Turn it into a clean PDF or video file that looks professional and ready to sell.</li>
       <li><strong>STEP 5: MARKET ON SOCIAL MEDIA</strong> — Post teasers on TikTok, Facebook, WhatsApp. Show the value and direct people to buy.</li>
-      <li><strong>STEP 6: SELL &amp; DELIVER ONLINE</strong> — Collect payment via transfer or card, then send the product. Simple.</li>
+      <li><strong>STEP 6: SELL &amp; DELIVER</strong> — Collect payment via transfer or card, then send the product. Simple.</li>
     </ul>
 
     <p>Imagine building a library of digital products that answer real questions — and selling them over and over again. This is a real digital product business that you can start from your phone.</p>
@@ -1846,32 +1846,29 @@
       updateCountdown();
       countdownInterval = setInterval(updateCountdown, 1000);
 
-      // ---------- VIDEO PLAYER: POSTER + PLAY BUTTON (SOUND ON) ----------
-      const video = document.getElementById('promoVideo');
+      // ---------- YOUTUBE VIDEO: POSTER + PLAY BUTTON ----------
+      // The iframe is created ONLY when the user taps play.
+      // This guarantees autoplay-with-sound (user-gesture triggered load).
       const poster = document.getElementById('videoPoster');
       const playBtn = document.getElementById('playBtn');
+      const videoMount = document.getElementById('videoMount');
+      let videoLoaded = false;
 
       function playVideo() {
+        if (videoLoaded) return;
+        videoLoaded = true;
+
         // Hide poster overlay
         poster.classList.add('hidden');
-        // Ensure sound is on and play
-        video.muted = false;
-        video.volume = 1;
-        const playPromise = video.play();
-        if (playPromise !== undefined) {
-          playPromise.catch(function(error) {
-            // If autoplay with sound is blocked, mute and try again, then unmute
-            console.warn('Playback with sound was blocked, retrying muted...', error);
-            video.muted = true;
-            video.play().then(function() {
-              // Unmute after playback starts
-              video.muted = false;
-              video.volume = 1;
-            }).catch(function(err) {
-              console.error('Unable to play video:', err);
-            });
-          });
-        }
+
+        // Inject YouTube iframe fresh — with autoplay=1 and playsinline=1
+        const iframe = document.createElement('iframe');
+        iframe.src = "https://www.youtube.com/embed/xiyz4Fs6UrQ?si=GDqiLPnCKKVNfBhq&autoplay=1&rel=0&modestbranding=1&playsinline=1";
+        iframe.title = "PromiseTech Academy — Watch this first";
+        iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
+        iframe.setAttribute("allowfullscreen", "");
+        iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+        videoMount.appendChild(iframe);
       }
 
       // Tap poster or play button to play
@@ -1879,12 +1876,6 @@
       playBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         playVideo();
-      });
-
-      // When video ends, show poster again
-      video.addEventListener('ended', function() {
-        poster.classList.remove('hidden');
-        video.currentTime = 0;
       });
 
       // ---------- PURCHASE NOTIFICATIONS (TOP POSITION) ----------
