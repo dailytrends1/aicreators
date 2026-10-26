@@ -39,7 +39,7 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
       background: #f5fbf7;
       color: #0c1f17;
       line-height: 1.55;
-      padding: 0 16px 60px;
+      padding: 0 16px 140px;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -87,6 +87,49 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
       -webkit-text-fill-color: transparent;
       background-clip: text;
       font-weight: 800;
+    }
+
+    /* ---------- STICKY BOTTOM BAR ---------- */
+    .sticky-bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10000;
+      background: linear-gradient(90deg, #0a2e1f, #0d6b3e, #0a2e1f);
+      border-top: 3px solid #d4af37;
+      box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.25);
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .sticky-bottom-bar button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(145deg, #b8860b, #d4af37, #b8860b);
+      color: #1a1405;
+      font-weight: 800;
+      font-size: 1.1rem;
+      padding: 14px 32px;
+      border-radius: 60px;
+      border: 2px solid #f5e6a3;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.45);
+      font-family: inherit;
+      width: 100%;
+      max-width: 480px;
+      letter-spacing: 0.3px;
+    }
+
+    .sticky-bottom-bar button:hover {
+      background: linear-gradient(145deg, #a0740a, #c49b2c, #a0740a);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(212, 175, 55, 0.55);
     }
 
     /* ---------- PAGE WRAPPER ---------- */
@@ -157,7 +200,7 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
       color: #1e3a2f;
     }
 
-    /* -------- ACADEMY HEADER (CENTRALIZED) -------- */
+    /* -------- ACADEMY HEADER -------- */
     .academy-header {
       display: flex;
       flex-direction: column;
@@ -224,7 +267,7 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
       display: inline-block;
     }
 
-    /* ---------- VIDEO SECTION (PORTRAIT / MOBILE) ---------- */
+    /* ---------- VIDEO SECTION ---------- */
     .video-wrapper {
       margin: 32px 0 28px;
       text-align: center;
@@ -232,6 +275,40 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
       display: flex;
       flex-direction: column;
       align-items: center;
+    }
+
+    .start-training-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(145deg, #0d6b3e, #0a5530);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.1rem;
+      padding: 16px 32px;
+      border-radius: 60px;
+      border: 2px solid #d4af37;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 10px 24px rgba(13, 107, 62, 0.35);
+      font-family: inherit;
+      width: 100%;
+      max-width: 400px;
+      letter-spacing: 0.3px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .start-training-btn:hover {
+      background: linear-gradient(145deg, #0a5530, #073d22);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(13, 107, 62, 0.45);
+    }
+
+    .start-training-btn i {
+      font-size: 1.2rem;
+      color: #f5e6a3;
     }
 
     .video-note {
@@ -257,7 +334,6 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
       flex-shrink: 0;
     }
 
-    /* Portrait 9:16 container, max width ~360px for phones */
     .video-container {
       position: relative;
       width: 100%;
@@ -271,7 +347,6 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
       aspect-ratio: 9 / 16;
     }
 
-    /* Video mount (iframe gets injected here on play) */
     #videoMount {
       position: absolute;
       top: 0;
@@ -291,7 +366,6 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
       display: block;
     }
 
-    /* Poster overlay with play button */
     .video-poster {
       position: absolute;
       top: 0;
@@ -338,7 +412,7 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
     .play-btn i {
       font-size: 2.2rem;
       color: #0a2e1f;
-      margin-left: 5px; /* optical centering for play triangle */
+      margin-left: 5px;
       text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
     }
 
@@ -708,7 +782,7 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
       font-weight: 500;
     }
 
-    /* ---------- NOTIFICATION TOASTS (SMALLER + ONE AT A TIME) ---------- */
+    /* ---------- NOTIFICATION TOASTS ---------- */
     .notif-container {
       position: fixed;
       top: 80px;
@@ -963,7 +1037,7 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
     /* ---------- CHAT SUPPORT FLOATING BUTTON ---------- */
     .chat-support-wrap {
       position: fixed;
-      bottom: 24px;
+      bottom: 100px;
       right: 24px;
       z-index: 9998;
       display: flex;
@@ -972,7 +1046,6 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
       gap: 12px;
     }
 
-    /* Small WhatsApp FAB */
     .chat-support-fab {
       width: 60px;
       height: 60px;
@@ -999,7 +1072,6 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
       font-size: 1.8rem;
     }
 
-    /* Pulse ring on FAB */
     .chat-support-fab::after {
       content: '';
       position: absolute;
@@ -1019,7 +1091,6 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
       100% { transform: scale(1.5); opacity: 0; }
     }
 
-    /* Expanded chat card */
     .chat-support-card {
       width: 300px;
       max-width: calc(100vw - 48px);
@@ -1131,7 +1202,6 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
       color: #0a2e1f;
     }
 
-    /* Hide FAB label bubble tooltip */
     .chat-support-tip {
       position: absolute;
       right: 70px;
@@ -1170,7 +1240,7 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
 
     @media (max-width: 680px) {
       .chat-support-wrap {
-        bottom: 16px;
+        bottom: 96px;
         right: 16px;
       }
 
@@ -1194,6 +1264,10 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
 
     /* ---------- RESPONSIVE ---------- */
     @media (max-width: 680px) {
+      body {
+        padding: 0 16px 150px;
+      }
+
       .page {
         padding: 22px 16px 36px;
         border-radius: 28px;
@@ -1281,6 +1355,12 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
         max-width: 220px;
       }
 
+      .start-training-btn {
+        font-size: 1rem;
+        padding: 14px 24px;
+        max-width: 100%;
+      }
+
       .exit-modal {
         max-width: 100%;
         border-radius: 20px;
@@ -1289,6 +1369,11 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
       .exit-title { font-size: 1.4rem; }
       .exit-new-price { font-size: 1.6rem; }
       .exit-old-price { font-size: 1.1rem; }
+
+      .sticky-bottom-bar button {
+        font-size: 1rem;
+        padding: 12px 20px;
+      }
     }
 
     @media (max-width: 400px) {
@@ -1356,7 +1441,6 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
       gap: 6px;
     }
 
-    /* custom additions for digital product theme */
     .prompt-badge {
       display: inline-flex;
       align-items: center;
@@ -1370,8 +1454,6 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
       margin: 12px 0;
       font-size: 0.95rem;
     }
-
-    /* Hide old checkout overlay styles */
   </style>
 <link rel="me" href="https://www.blogger.com/profile/06236339533173646059" />
 <meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
@@ -1385,10 +1467,10 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
     <span class="timer-box" id="countdownTimer">20:00</span>
   </div>
 
-  <!-- ================= NOTIFICATION CONTAINER (TOP POSITION) ================= -->
+  <!-- ================= NOTIFICATION CONTAINER ================= -->
   <div class="notif-container" id="notifContainer"></div>
 
-  <!-- ================= CHAT SUPPORT (FLOATING FAB → EXPANDS) ================= -->
+  <!-- ================= CHAT SUPPORT ================= -->
   <div class="chat-support-wrap">
     <div class="chat-support-card" id="chatSupportCard">
       <button class="chat-close" id="chatCloseBtn" aria-label="Close">&times;</button>
@@ -1412,6 +1494,13 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
     </div>
   </div>
 
+  <!-- ================= STICKY BOTTOM BAR ================= -->
+  <div class="sticky-bottom-bar">
+    <button onclick="openCheckout()">
+      <i class="fa-solid fa-bolt"></i> JOIN NOW FOR ₦5,000
+    </button>
+  </div>
+
   <!-- ================= 4-MINUTE DISCOUNT MODAL ================= -->
   <div class="modal-overlay" id="discountModal" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.55);backdrop-filter:blur(6px);z-index:10000;display:none;align-items:center;justify-content:center;padding:20px;">
     <div style="background:#ffffff;border-radius:28px;max-width:480px;width:100%;padding:40px 32px 32px;text-align:center;box-shadow:0 40px 80px rgba(0,0,0,0.3);animation:popIn 0.4s cubic-bezier(0.22,1,0.36,1);position:relative;border:2px solid #d4af37;">
@@ -1432,7 +1521,7 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
     </div>
   </div>
 
-  <!-- ================= EXIT INTENT POPUP (BACK BUTTON ONLY) ================= -->
+  <!-- ================= EXIT INTENT POPUP ================= -->
   <div class="exit-overlay" id="exitOverlay">
     <div class="exit-modal">
       <div class="exit-header">
@@ -1483,18 +1572,21 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
       Learn to build AI‑powered ebooks, stick different videos into a single answer, and sell your digital products on social media — with the exact prompts we use.
     </p>
 
-    <!-- ================= VIDEO SECTION (YOUTUBE PORTRAIT) ================= -->
+    <!-- ================= VIDEO SECTION ================= -->
     <div class="video-wrapper">
+      <!-- START THE TRAINING NOW BUTTON -->
+      <button class="start-training-btn" id="startTrainingBtn">
+        <i class="fa-solid fa-play-circle"></i> START THE TRAINING NOW
+      </button>
+
       <div class="video-note">
         <i class="fa-solid fa-circle-exclamation"></i>
         Watch this video first before buying to understand!
       </div>
 
       <div class="video-container" id="videoContainer">
-        <!-- YouTube iframe will be INJECTED here on play -->
         <div id="videoMount"></div>
 
-        <!-- Poster overlay with play button -->
         <div class="video-poster" id="videoPoster">
           <div class="play-btn" id="playBtn">
             <i class="fa-solid fa-play"></i>
@@ -1505,7 +1597,7 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
       </div>
     </div>
 
-    <!-- PRICE + FIRST CTA (OPENS PAYMENT LINK) -->
+    <!-- PRICE + FIRST CTA -->
     <div class="special-offer-box gold-border">
       <div style="display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:10px; margin-bottom:12px;">
         <span class="price-strike">₦30,000</span>
@@ -1545,7 +1637,6 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
 
     <div class="grid-2">
 
-      <!-- FIRST CARD: CORE FOCUS -->
       <div class="card card-highlight">
         <h3>🎯 Digital Product Creation &amp; Selling — The Core Focus</h3>
         <p style="font-weight:600; color:#0a5530; margin-bottom:12px;">
@@ -1561,7 +1652,6 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
         <span class="highlight-tag">★ Start building your product empire today</span>
       </div>
 
-      <!-- REST OF THE CARDS -->
       <div class="card">
         <h3>1. AI Ebook Creation</h3>
         <ul>
@@ -1624,7 +1714,7 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
 
     <hr class="gold-divider">
 
-    <!-- ================= TESTIMONIALS SECTION ================= -->
+    <!-- ================= TESTIMONIALS ================= -->
     <h2>⭐ What our students are saying</h2>
     <p style="margin-bottom: 24px;">Real feedback from creators who started creating and selling digital products.</p>
 
@@ -1780,7 +1870,7 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
     (function() {
       // ---------- COUNTDOWN TIMER (20 MINUTES) ----------
       const countdownElement = document.getElementById('countdownTimer');
-      let totalSeconds = 1200; // 20 minutes = 1200 seconds
+      let totalSeconds = 1200;
       let countdownInterval;
 
       function updateCountdown() {
@@ -1800,7 +1890,7 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
       updateCountdown();
       countdownInterval = setInterval(updateCountdown, 1000);
 
-      // ---------- CHAT SUPPORT FAB → EXPAND CARD ----------
+      // ---------- CHAT SUPPORT FAB ----------
       const chatFab = document.getElementById('chatFab');
       const chatCard = document.getElementById('chatSupportCard');
       const chatCloseBtn = document.getElementById('chatCloseBtn');
@@ -1841,18 +1931,23 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
         }
       });
 
-      // ---------- YOUTUBE VIDEO: POSTER + PLAY BUTTON ----------
+      // ---------- YOUTUBE VIDEO ----------
       const poster = document.getElementById('videoPoster');
       const playBtn = document.getElementById('playBtn');
       const videoMount = document.getElementById('videoMount');
+      const videoContainer = document.getElementById('videoContainer');
+      const startTrainingBtn = document.getElementById('startTrainingBtn');
       let videoLoaded = false;
 
-      function playVideo() {
+      // Inject the iframe. Uses autoplay=1 and mute=0 so it plays WITH sound.
+      // Must be called synchronously from a real user gesture (click) for sound to work.
+      function loadAndPlayVideo() {
         if (videoLoaded) return;
         videoLoaded = true;
         poster.classList.add('hidden');
         const iframe = document.createElement('iframe');
-        iframe.src = "https://www.youtube.com/embed/yHGSpn9itvQ?si=tt6NCI4nJ5GeGm3r&autoplay=1&rel=0&modestbranding=1&playsinline=1";
+        // mute=0 explicitly requests audio. autoplay=1 plays it immediately.
+        iframe.src = "https://www.youtube.com/embed/yHGSpn9itvQ?si=tt6NCI4nJ5GeGm3r&autoplay=1&mute=0&rel=0&modestbranding=1&playsinline=1";
         iframe.title = "PromiseTech Academy — Watch this first";
         iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
         iframe.setAttribute("allowfullscreen", "");
@@ -1860,13 +1955,25 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
         videoMount.appendChild(iframe);
       }
 
-      poster.addEventListener('click', playVideo);
+      // Tap poster / play button — direct user gesture → sound allowed
+      poster.addEventListener('click', loadAndPlayVideo);
       playBtn.addEventListener('click', function(e) {
         e.stopPropagation();
-        playVideo();
+        loadAndPlayVideo();
       });
 
-      // ---------- PURCHASE NOTIFICATIONS (ONE AT A TIME, SMALLER) ----------
+      // START THE TRAINING NOW — scroll AND play inside the click gesture.
+      // We scroll first (sync), then load the iframe synchronously so the
+      // browser still treats it as a user-initiated play → sound on.
+      startTrainingBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Scroll into view (does not break gesture context)
+        videoContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Load and play IMMEDIATELY — same tick as the click
+        loadAndPlayVideo();
+      });
+
+      // ---------- PURCHASE NOTIFICATIONS ----------
       const buyers = [
         { name: "Chinedu O.", location: "Lagos" },
         { name: "Aisha B.", location: "Abuja" },
@@ -1977,7 +2084,7 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
         }
       });
 
-      // ---------- EXIT INTENT POPUP (BACK BUTTON ONLY) ----------
+      // ---------- EXIT INTENT POPUP ----------
       const exitOverlay = document.getElementById('exitOverlay');
       const exitPayBtn = document.getElementById('exitPayBtn');
       const exitDeclineBtn = document.getElementById('exitDeclineBtn');
@@ -2018,16 +2125,12 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
         }
       });
 
-      // ---------- OPEN CHECKOUT (now just opens payment link) ----------
-      // Replaces the old account-number overlay with a direct link to Flutterwave.
+      // ---------- OPEN CHECKOUT ----------
       window.openCheckout = function() {
         window.open('https://flutterwave.com/pay/prkzhgrsm3xl', '_blank');
       };
 
       // ---------- META PIXEL PURCHASE EVENT ----------
-      // Still fires on the "I Have Completed My Payment" button inside the page.
-      // Since we no longer have the in-page checkout overlay, we keep this
-      // helper for any future use. (The old checkout overlay is removed.)
       window.trackPurchaseAndMark = function() {
         if (typeof fbq === 'function') {
           fbq('track', 'Purchase', {
