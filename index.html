@@ -960,423 +960,6 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
       color: #5a7a6b;
     }
 
-    /* ---------- CHECKOUT OVERLAY (SELAR-STYLE) ---------- */
-    #checkoutOverlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(6px);
-      z-index: 10002;
-      display: none;
-      align-items: flex-end;
-      justify-content: center;
-    }
-
-    #checkoutOverlay.active {
-      display: flex;
-    }
-
-    .checkout-sheet {
-      background: #ffffff;
-      width: 100%;
-      max-width: 600px;
-      max-height: 92vh;
-      border-radius: 28px 28px 0 0;
-      overflow-y: auto;
-      animation: slideUpCheckout 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-      box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.3);
-      position: relative;
-    }
-
-    @keyframes slideUpCheckout {
-      from { transform: translateY(100%); }
-      to { transform: translateY(0); }
-    }
-
-    .checkout-topbar {
-      position: sticky;
-      top: 0;
-      background: #ffffff;
-      padding: 18px 24px;
-      border-bottom: 1px solid #e8f0eb;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      z-index: 10;
-      border-radius: 28px 28px 0 0;
-    }
-
-    .checkout-topbar span {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #1A1A2E;
-    }
-
-    .checkout-close {
-      background: none;
-      border: none;
-      font-size: 1.4rem;
-      color: #8faa9b;
-      cursor: pointer;
-      padding: 4px 8px;
-      transition: color 0.2s;
-    }
-
-    .checkout-close:hover {
-      color: #0a2e1f;
-    }
-
-    .checkout-wrap {
-      padding: 24px 24px 36px;
-    }
-
-    .logo-placeholder {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #f5fbf7;
-      border-radius: 20px;
-      border: 2px solid #d4af37;
-      overflow: hidden;
-    }
-
-    .logo-placeholder img {
-      max-width: 100%;
-      max-height: 100%;
-      border-radius: 18px;
-    }
-
-    .checkout-brand-name {
-      text-align: center;
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: #0a2e1f;
-      margin-bottom: 4px;
-    }
-
-    .checkout-subtitle {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #5a7a6b;
-      margin-bottom: 24px;
-    }
-
-    .checkout-amount-box {
-      background: linear-gradient(145deg, #f0fcf6, #ffffff);
-      border: 2px solid #d4af37;
-      border-radius: 20px;
-      padding: 20px;
-      text-align: center;
-      margin-bottom: 24px;
-    }
-
-    .checkout-amount-box .label {
-      font-size: 0.85rem;
-      color: #5a7a6b;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 4px;
-    }
-
-    .checkout-amount-box .amount {
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: #0d6b3e;
-      letter-spacing: -0.02em;
-    }
-
-    .selar-detail-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 0;
-      border-bottom: 1px solid #e8f0eb;
-      gap: 12px;
-    }
-
-    .selar-detail-row .label {
-      font-size: 0.8rem;
-      color: #8faa9b;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 2px;
-    }
-
-    .selar-detail-row .value {
-      font-size: 1rem;
-      font-weight: 700;
-      color: #0a2e1f;
-    }
-
-    .selar-btn-outline {
-      background: transparent;
-      border: 1.5px solid #0d6b3e;
-      color: #0d6b3e;
-      font-weight: 600;
-      font-size: 0.8rem;
-      padding: 6px 16px;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: all 0.2s;
-      white-space: nowrap;
-      font-family: inherit;
-    }
-
-    .selar-btn-outline:hover {
-      background: #0d6b3e;
-      color: #ffffff;
-    }
-
-    .checkout-note {
-      background: #f2fbf6;
-      border-radius: 16px;
-      padding: 16px 18px;
-      margin: 20px 0;
-      font-size: 0.9rem;
-      color: #1e3a2f;
-      border-left: 4px solid #0d6b3e;
-      line-height: 1.5;
-    }
-
-    .selar-btn {
-      display: block;
-      width: 100%;
-      background: linear-gradient(145deg, #0d6b3e, #0a5530);
-      color: #ffffff;
-      font-weight: 700;
-      font-size: 1.05rem;
-      padding: 18px 24px;
-      border-radius: 60px;
-      text-decoration: none;
-      text-align: center;
-      border: 1px solid #d4af37;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      box-shadow: 0 8px 20px rgba(13, 107, 62, 0.25);
-      margin-bottom: 12px;
-      font-family: inherit;
-    }
-
-    .selar-btn:hover {
-      background: linear-gradient(145deg, #0a5530, #073d22);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(13, 107, 62, 0.35);
-    }
-
-    .pay-card-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: linear-gradient(145deg, #6b2d8b, #4a1e61);
-      color: #ffffff;
-      font-weight: 700;
-      font-size: 1.05rem;
-      padding: 18px 24px;
-      border-radius: 60px;
-      text-decoration: none;
-      text-align: center;
-      border: 1px solid #d4af37;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      box-shadow: 0 8px 20px rgba(107, 45, 139, 0.3);
-    }
-
-    .pay-card-btn:hover {
-      background: linear-gradient(145deg, #4a1e61, #3a154d);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(107, 45, 139, 0.4);
-    }
-
-    /* ---------- RESPONSIVE ---------- */
-    @media (max-width: 680px) {
-      .page {
-        padding: 22px 16px 36px;
-        border-radius: 28px;
-      }
-
-      h1 { font-size: 1.8rem; }
-      h2 { font-size: 1.5rem; }
-
-      .grid-2,
-      .testimonial-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .btn {
-        font-size: 1.05rem;
-        padding: 18px 24px;
-      }
-
-      .price-big { font-size: 1.8rem; }
-
-      .academy-name { font-size: 1.4rem; }
-      .academy-name span { font-size: 0.75rem; letter-spacing: 3px; }
-
-      .logo-mark {
-        width: 58px;
-        height: 58px;
-        font-size: 1.8rem;
-      }
-
-      .premium-badge {
-        font-size: 0.7rem;
-        padding: 6px 14px;
-      }
-
-      .notif-container {
-        top: 70px;
-        max-width: 270px;
-      }
-
-      .notif-toast {
-        padding: 7px 12px 7px 9px;
-      }
-
-      .countdown-bar {
-        font-size: 0.85rem;
-        padding: 10px 12px;
-        gap: 6px;
-        margin: 0 -16px 18px -16px;
-        width: calc(100% + 32px);
-      }
-
-      .countdown-bar .timer-box {
-        font-size: 1rem;
-        padding: 4px 12px;
-        min-width: 70px;
-      }
-
-      .card-highlight::before {
-        left: 16px;
-        font-size: 0.6rem;
-        padding: 3px 12px;
-      }
-
-      .video-container {
-        max-width: 320px;
-        border-radius: 20px;
-      }
-
-      .play-btn {
-        width: 76px;
-        height: 76px;
-      }
-
-      .play-btn i {
-        font-size: 1.9rem;
-      }
-
-      .video-note {
-        font-size: 0.82rem;
-        padding: 8px 16px;
-      }
-
-      .poster-text {
-        font-size: 0.92rem;
-        max-width: 220px;
-      }
-
-      .exit-modal {
-        max-width: 100%;
-        border-radius: 20px;
-      }
-
-      .exit-title { font-size: 1.4rem; }
-      .exit-new-price { font-size: 1.6rem; }
-      .exit-old-price { font-size: 1.1rem; }
-
-      .checkout-wrap { padding: 20px 16px 28px; }
-    }
-
-    @media (max-width: 400px) {
-      .countdown-bar {
-        flex-direction: column;
-        gap: 4px;
-      }
-
-      .academy-name { font-size: 1.2rem; }
-
-      .video-container {
-        max-width: 280px;
-      }
-
-      .play-btn {
-        width: 66px;
-        height: 66px;
-      }
-
-      .play-btn i {
-        font-size: 1.6rem;
-      }
-    }
-
-    .center { text-align: center; }
-    .mt-4 { margin-top: 32px; }
-    .mb-2 { margin-bottom: 12px; }
-
-    hr {
-      border: none;
-      border-top: 2px solid #d7efe2;
-      margin: 40px 0;
-    }
-
-    .highlight {
-      background: linear-gradient(120deg, #d7f5e6 0%, #d7f5e6 60%, #f5e6a3 100%);
-      padding: 2px 10px;
-      border-radius: 8px;
-      font-weight: 600;
-      color: #0a5530;
-    }
-
-    .gold-divider {
-      height: 3px;
-      background: linear-gradient(90deg, transparent, #d4af37, #b8860b, #d4af37, transparent);
-      margin: 40px 0;
-      border: none;
-      opacity: 0.5;
-    }
-
-    .trust-icons {
-      display: flex;
-      justify-content: center;
-      gap: 28px;
-      flex-wrap: wrap;
-      margin: 24px 0;
-      font-size: 0.9rem;
-      color: #3a5e4e;
-      font-weight: 500;
-    }
-
-    .trust-icons span {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    /* custom additions for digital product theme */
-    .prompt-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #f0e6ff;
-      border: 1px dashed #6b2d8b;
-      border-radius: 40px;
-      padding: 8px 20px;
-      font-weight: 600;
-      color: #4a1e61;
-      margin: 12px 0;
-      font-size: 0.95rem;
-    }
-
     /* ---------- CHAT SUPPORT FLOATING BUTTON ---------- */
     .chat-support-wrap {
       position: fixed;
@@ -1608,6 +1191,187 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
         display: none;
       }
     }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 680px) {
+      .page {
+        padding: 22px 16px 36px;
+        border-radius: 28px;
+      }
+
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.5rem; }
+
+      .grid-2,
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        font-size: 1.05rem;
+        padding: 18px 24px;
+      }
+
+      .price-big { font-size: 1.8rem; }
+
+      .academy-name { font-size: 1.4rem; }
+      .academy-name span { font-size: 0.75rem; letter-spacing: 3px; }
+
+      .logo-mark {
+        width: 58px;
+        height: 58px;
+        font-size: 1.8rem;
+      }
+
+      .premium-badge {
+        font-size: 0.7rem;
+        padding: 6px 14px;
+      }
+
+      .notif-container {
+        top: 70px;
+        max-width: 270px;
+      }
+
+      .notif-toast {
+        padding: 7px 12px 7px 9px;
+      }
+
+      .countdown-bar {
+        font-size: 0.85rem;
+        padding: 10px 12px;
+        gap: 6px;
+        margin: 0 -16px 18px -16px;
+        width: calc(100% + 32px);
+      }
+
+      .countdown-bar .timer-box {
+        font-size: 1rem;
+        padding: 4px 12px;
+        min-width: 70px;
+      }
+
+      .card-highlight::before {
+        left: 16px;
+        font-size: 0.6rem;
+        padding: 3px 12px;
+      }
+
+      .video-container {
+        max-width: 320px;
+        border-radius: 20px;
+      }
+
+      .play-btn {
+        width: 76px;
+        height: 76px;
+      }
+
+      .play-btn i {
+        font-size: 1.9rem;
+      }
+
+      .video-note {
+        font-size: 0.82rem;
+        padding: 8px 16px;
+      }
+
+      .poster-text {
+        font-size: 0.92rem;
+        max-width: 220px;
+      }
+
+      .exit-modal {
+        max-width: 100%;
+        border-radius: 20px;
+      }
+
+      .exit-title { font-size: 1.4rem; }
+      .exit-new-price { font-size: 1.6rem; }
+      .exit-old-price { font-size: 1.1rem; }
+    }
+
+    @media (max-width: 400px) {
+      .countdown-bar {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .academy-name { font-size: 1.2rem; }
+
+      .video-container {
+        max-width: 280px;
+      }
+
+      .play-btn {
+        width: 66px;
+        height: 66px;
+      }
+
+      .play-btn i {
+        font-size: 1.6rem;
+      }
+    }
+
+    .center { text-align: center; }
+    .mt-4 { margin-top: 32px; }
+    .mb-2 { margin-bottom: 12px; }
+
+    hr {
+      border: none;
+      border-top: 2px solid #d7efe2;
+      margin: 40px 0;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, #d7f5e6 0%, #d7f5e6 60%, #f5e6a3 100%);
+      padding: 2px 10px;
+      border-radius: 8px;
+      font-weight: 600;
+      color: #0a5530;
+    }
+
+    .gold-divider {
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #d4af37, #b8860b, #d4af37, transparent);
+      margin: 40px 0;
+      border: none;
+      opacity: 0.5;
+    }
+
+    .trust-icons {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      margin: 24px 0;
+      font-size: 0.9rem;
+      color: #3a5e4e;
+      font-weight: 500;
+    }
+
+    .trust-icons span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* custom additions for digital product theme */
+    .prompt-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f0e6ff;
+      border: 1px dashed #6b2d8b;
+      border-radius: 40px;
+      padding: 8px 20px;
+      font-weight: 600;
+      color: #4a1e61;
+      margin: 12px 0;
+      font-size: 0.95rem;
+    }
+
+    /* Hide old checkout overlay styles */
   </style>
 <link rel="me" href="https://www.blogger.com/profile/06236339533173646059" />
 <meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
@@ -1698,75 +1462,6 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
     </div>
   </div>
 
-  <!-- ================= SELAR-STYLE CHECKOUT OVERLAY (SLIDE-UP) ================= -->
-  <div id="checkoutOverlay">
-    <div class="checkout-sheet">
-      <div class="checkout-topbar">
-        <span style="font-weight:600;color:#1A1A2E;">Secure Checkout</span>
-        <button class="checkout-close" onclick="closeCheckout()"><i class="fas fa-times"></i></button>
-      </div>
-      <div class="checkout-wrap">
-
-        <!-- LOGO SPACE -->
-        <div class="logo-placeholder">
-          <div class="logo-mark" style="width:64px;height:64px;font-size:1.8rem;border-radius:18px;border:2px solid #d4af37;">P</div>
-        </div>
-
-        <div class="checkout-brand-name">PromiseTech Academy</div>
-        <div class="checkout-subtitle">Complete your registration by paying your activation fee to the account details below.</div>
-
-        <div class="checkout-amount-box">
-          <div class="label">Amount to pay</div>
-          <div class="amount">₦5,000</div>
-        </div>
-
-        <div>
-          <div class="selar-detail-row">
-            <div>
-              <div class="label">Account Name</div>
-              <div class="value" id="acctName">Promise Tech Academy</div>
-            </div>
-            <button class="selar-btn-outline" onclick="copyDetail('Promise Tech Academy', this)">Copy</button>
-          </div>
-          <div class="selar-detail-row">
-            <div>
-              <div class="label">Account Number</div>
-              <div class="value" id="acctNumber">9301236393</div>
-            </div>
-            <button class="selar-btn-outline" onclick="copyDetail('9301236393', this)">Copy</button>
-          </div>
-          <div class="selar-detail-row">
-            <div>
-              <div class="label">Bank Name</div>
-              <div class="value" id="bankName">Flutterwave MFB</div>
-            </div>
-            <button class="selar-btn-outline" onclick="copyDetail('Flutterwave MFB', this)">Copy</button>
-          </div>
-        </div>
-
-        <div class="checkout-note">
-          <i class="fas fa-info-circle me-1"></i> Transfer the activation fee to the account above, then tap the button below to confirm your payment on WhatsApp. Your access and the exact prompts will be sent immediately.
-        </div>
-
-        <div>
-          <!-- ========== PURCHASE-TRACKED BUTTON ========== -->
-          <a href="https://wa.me/2348127348137?text=Hello%2C%20I%20have%20completed%20my%20payment%20for%20PromiseTech%20Academy%20and%20I%27m%20sending%20my%20proof%20of%20payment." 
-             target="_blank" 
-             class="selar-btn" 
-             id="paymentCompletedBtn" 
-             onclick="trackPurchaseAndMark();">
-            <i class="fab fa-whatsapp me-2"></i> I Have Completed My Payment
-          </a>
-          <!-- PAY WITH CARD BUTTON -->
-          <a href="https://flutterwave.com/pay/aicashkings" target="_blank" class="pay-card-btn">
-            <i class="fa-regular fa-credit-card"></i> Pay with Card
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
   <!-- ================= MAIN PAGE ================= -->
   <div class="page">
 
@@ -1810,7 +1505,7 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
       </div>
     </div>
 
-    <!-- PRICE + FIRST CTA (OPENS CHECKOUT) -->
+    <!-- PRICE + FIRST CTA (OPENS PAYMENT LINK) -->
     <div class="special-offer-box gold-border">
       <div style="display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:10px; margin-bottom:12px;">
         <span class="price-strike">₦30,000</span>
@@ -2111,8 +1806,6 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
       const chatCloseBtn = document.getElementById('chatCloseBtn');
       const chatTip = document.getElementById('chatTip');
 
-      // Show the FAB with a gentle attention pulse after 5 seconds
-      // (The FAB is always visible; we just remove the tooltip after a while)
       setTimeout(function() {
         if (chatTip && chatTip.parentNode) {
           chatTip.style.transition = 'opacity 0.4s ease';
@@ -2123,13 +1816,11 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
         }
       }, 7000);
 
-      // Toggle the expanded card when FAB is tapped
       chatFab.addEventListener('click', function(e) {
         e.stopPropagation();
         chatCard.classList.toggle('open');
       });
 
-      // Also allow keyboard activation on the FAB
       chatFab.addEventListener('keydown', function(e) {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
@@ -2137,13 +1828,11 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
         }
       });
 
-      // Close button inside the card
       chatCloseBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         chatCard.classList.remove('open');
       });
 
-      // Close when clicking outside the card/FAB
       document.addEventListener('click', function(e) {
         if (chatCard.classList.contains('open') &&
             !chatCard.contains(e.target) &&
@@ -2153,8 +1842,6 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
       });
 
       // ---------- YOUTUBE VIDEO: POSTER + PLAY BUTTON ----------
-      // The iframe is created ONLY when the user taps play.
-      // This guarantees autoplay-with-sound (user-gesture triggered load).
       const poster = document.getElementById('videoPoster');
       const playBtn = document.getElementById('playBtn');
       const videoMount = document.getElementById('videoMount');
@@ -2163,11 +1850,7 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
       function playVideo() {
         if (videoLoaded) return;
         videoLoaded = true;
-
-        // Hide poster overlay
         poster.classList.add('hidden');
-
-        // Inject YouTube iframe fresh — with autoplay=1 and playsinline=1
         const iframe = document.createElement('iframe');
         iframe.src = "https://www.youtube.com/embed/yHGSpn9itvQ?si=tt6NCI4nJ5GeGm3r&autoplay=1&rel=0&modestbranding=1&playsinline=1";
         iframe.title = "PromiseTech Academy — Watch this first";
@@ -2177,7 +1860,6 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
         videoMount.appendChild(iframe);
       }
 
-      // Tap poster or play button to play
       poster.addEventListener('click', playVideo);
       playBtn.addEventListener('click', function(e) {
         e.stopPropagation();
@@ -2243,8 +1925,6 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
         return toast;
       }
 
-      // Show ONE notification at a time.
-      // It displays for 4s, then fades out (0.35s), and only THEN does the next one appear.
       function showOneNotification() {
         if (notificationRunning) return;
         notificationRunning = true;
@@ -2257,28 +1937,23 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
         container.appendChild(toast);
         index++;
 
-        // Display duration
         setTimeout(() => {
           toast.classList.add('fade-out');
-          // Wait for fade-out animation to finish before scheduling next
           setTimeout(() => {
             if (toast.parentNode) toast.remove();
             notificationRunning = false;
-            // Schedule the next notification after a short gap
-            const gap = 2500 + Math.random() * 2000; // 2.5s – 4.5s gap between notifications
+            const gap = 2500 + Math.random() * 2000;
             setTimeout(showOneNotification, gap);
-          }, 380); // slightly longer than the 0.35s animation
+          }, 380);
         }, 4000);
       }
 
-      // Start the first notification after 2 seconds
       setTimeout(showOneNotification, 2000);
 
       // ---------- 4-MINUTE DISCOUNT MODAL ----------
       const discountModal = document.getElementById('discountModal');
       let discountModalShown = false;
 
-      // Show after 4 minutes = 240000 ms
       setTimeout(() => {
         if (!sessionStorage.getItem('promisetechDiscountDismissed') && !discountModalShown) {
           discountModal.style.display = 'flex';
@@ -2319,10 +1994,8 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
         exitOverlay.classList.remove('active');
       }
 
-      // Push a state so the first back button press triggers popstate
       history.pushState({ page: 'promisetech' }, '', location.href);
 
-      // Listen for back button / history navigation
       window.addEventListener('popstate', function(event) {
         if (!exitShown) {
           showExitPopup();
@@ -2345,74 +2018,17 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
         }
       });
 
-      // ---------- CHECKOUT OVERLAY ----------
-      const checkoutOverlay = document.getElementById('checkoutOverlay');
-
+      // ---------- OPEN CHECKOUT (now just opens payment link) ----------
+      // Replaces the old account-number overlay with a direct link to Flutterwave.
       window.openCheckout = function() {
-        checkoutOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        window.open('https://flutterwave.com/pay/prkzhgrsm3xl', '_blank');
       };
 
-      window.closeCheckout = function() {
-        checkoutOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-      };
-
-      checkoutOverlay.addEventListener('click', function(e) {
-        if (e.target === checkoutOverlay) {
-          closeCheckout();
-        }
-      });
-
-      // ---------- COPY DETAIL HELPER ----------
-      window.copyDetail = function(text, btn) {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(text).then(() => {
-            showCopyFeedback(btn);
-          }).catch(() => {
-            fallbackCopy(text, btn);
-          });
-        } else {
-          fallbackCopy(text, btn);
-        }
-      };
-
-      function fallbackCopy(text, btn) {
-        const textarea = document.createElement('textarea');
-        textarea.value = text;
-        textarea.style.position = 'fixed';
-        textarea.style.opacity = '0';
-        document.body.appendChild(textarea);
-        textarea.select();
-        try {
-          document.execCommand('copy');
-          showCopyFeedback(btn);
-        } catch (err) {
-          alert('Copy failed. Please manually copy: ' + text);
-        }
-        document.body.removeChild(textarea);
-      }
-
-      function showCopyFeedback(btn) {
-        const originalText = btn.innerText;
-        btn.innerText = 'Copied!';
-        btn.style.backgroundColor = '#4a154b';
-        btn.style.color = 'white';
-        btn.style.borderColor = '#4a154b';
-        setTimeout(() => {
-          btn.innerText = originalText;
-          btn.style.backgroundColor = '';
-          btn.style.color = '';
-          btn.style.borderColor = '';
-        }, 1500);
-      }
-
-      // ================================================================
-      //  META PIXEL — PURCHASE EVENT TRACKING
-      //  Fires when "I Have Completed My Payment" button is clicked
-      // ================================================================
+      // ---------- META PIXEL PURCHASE EVENT ----------
+      // Still fires on the "I Have Completed My Payment" button inside the page.
+      // Since we no longer have the in-page checkout overlay, we keep this
+      // helper for any future use. (The old checkout overlay is removed.)
       window.trackPurchaseAndMark = function() {
-        // Fire the Meta Pixel Purchase event
         if (typeof fbq === 'function') {
           fbq('track', 'Purchase', {
             value: 5000,
@@ -2426,11 +2042,9 @@ src="https://www.facebook.com/tr?id=1141758888416257&ev=PageView&noscript=1"
         } else {
           console.warn('⚠️ Meta Pixel (fbq) not available.');
         }
-        // Mark payment as completed (optional local flag)
         window.paymentCompleted = true;
       };
 
-      // Keep the old function name as an alias for backwards compatibility
       window.markPaymentCompleted = window.trackPurchaseAndMark;
 
     })();
